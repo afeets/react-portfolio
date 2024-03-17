@@ -1,3 +1,6 @@
+import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Projects from './pages/Projects';
 import Header from './components/Header';
 import Profile from './pages/Profile';
 import './App.css';
@@ -7,8 +10,19 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-      <Header logo={logo} />
-      <Profile username="afeets" />
+      <BrowserRouter>
+        <Header logo={logo} />
+        <Routes>
+        <Route 
+            path='/'
+            element={<Profile username="afeets" />}
+          />
+          <Route 
+          path='/projects'
+          element={<Projects username="afeets" />}
+        />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
